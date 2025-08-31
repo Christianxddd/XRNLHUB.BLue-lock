@@ -1,55 +1,12 @@
+--// Blue Lock Rivals HUB (WindUI)
+--// Creado por ChatGPT para ti 🔥
 
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
-
 local Window = WindUI:CreateWindow({
-
-    Title = "XRNL HUB | INK GAME",
-
-    Icon = "cat",
-
-    Author = "https://www.instagram.com/roseb_astian/",
-
-    Folder = "RONALDO",
-
+    Title = "Blue Lock Rivals HUB",
+    Size = UDim2.new(0, 500, 0, 400)
 })
-
-
-Window:EditOpenButton({
-
-    Title = "Open XRNL-HUB",
-
-    Icon = "cat",
-
-    CornerRadius = UDim.new(0,20),
-
-    StrokeThickness = 2,
-
-    Color = ColorSequence.new( -- gradient
-
-        Color3.fromHex("FF0F7B"), 
-
-        Color3.fromHex("F89B29")
-
-    ),
-
-    OnlyMobile = false,
-
-    Enabled = true,
-
-    Draggable = true,
-
-})
-
-
-Window:Tag({
-
-    Title = "v2.8.6",
-
-    Color = Color3.fromHex("#30ff6a")
-
-})
-
 
 -----------------------------------------------------------
 -- 🟦 PESTAÑA: MAIN
@@ -69,17 +26,6 @@ Main:CreateButton({
             stamina.Value = stamina.MaxValue
         end
     end
-})
-
-Main:CreateButton({
-    Name = "Stamina Infinita",
-    Callback = function()
-        local C = require(game:GetService("ReplicatedStorage").Controllers.AbilityController)
-local o = C.AbilityCooldown
-
-C.AbilityCooldown = function(s, n, ...)
-    return o(s, n, 0, ...)
-end
 })
 
 Main:CreateButton({
