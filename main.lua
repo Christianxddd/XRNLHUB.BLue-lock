@@ -1,19 +1,21 @@
 --// Blue Lock Rivals HUB (WindUI)
---// Creado por ChatGPT para ti 🔥
+--// Corregido: Sintaxis de WindUI (Toggle, Slider, Button, Dropdown)
 
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
-local Window = WindUI:CreateWindow({
-    Title = "Blue Lock Rivals HUB",
+local Window = WindUI:Window({
+    Name = "Blue Lock Rivals HUB",
     Size = UDim2.new(0, 500, 0, 400)
 })
 
 -----------------------------------------------------------
 -- 🟦 PESTAÑA: MAIN
 -----------------------------------------------------------
-local Main = Window:CreateTab("⚡ Main")
+local Main = Window:Tab({
+    Name = "⚡ Main"
+})
 
-Main:CreateButton({
+Main:Button({
     Name = "Stamina Infinita",
     Callback = function()
         local player = game.Players.LocalPlayer
@@ -28,10 +30,9 @@ Main:CreateButton({
     end
 })
 
-Main:CreateButton({
+Main:Button({
     Name = "Auto Shoot (Mantener clic)",
     Callback = function()
-        -- Ejemplo de auto shoot (depende del nombre de la skill en el juego)
         local UIS = game:GetService("UserInputService")
         UIS.InputBegan:Connect(function(input)
             if input.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -44,9 +45,11 @@ Main:CreateButton({
 -----------------------------------------------------------
 -- 🟦 PESTAÑA: PLAYER
 -----------------------------------------------------------
-local PlayerTab = Window:CreateTab("🏃 Player")
+local PlayerTab = Window:Tab({
+    Name = "🏃 Player"
+})
 
-PlayerTab:CreateSlider({
+PlayerTab:Slider({
     Name = "WalkSpeed",
     Min = 16,
     Max = 100,
@@ -56,7 +59,7 @@ PlayerTab:CreateSlider({
     end
 })
 
-PlayerTab:CreateSlider({
+PlayerTab:Slider({
     Name = "JumpPower",
     Min = 50,
     Max = 200,
@@ -66,7 +69,7 @@ PlayerTab:CreateSlider({
     end
 })
 
-PlayerTab:CreateButton({
+PlayerTab:Button({
     Name = "No Stun",
     Callback = function()
         local char = game.Players.LocalPlayer.Character
@@ -79,9 +82,11 @@ PlayerTab:CreateButton({
 -----------------------------------------------------------
 -- 🟦 PESTAÑA: TELEPORTS
 -----------------------------------------------------------
-local TP = Window:CreateTab("📍 Teleports")
+local TP = Window:Tab({
+    Name = "📍 Teleports"
+})
 
-TP:CreateButton({
+TP:Button({
     Name = "TP a la Pelota",
     Callback = function()
         local ball = workspace:FindFirstChild("SoccerBall") or workspace:FindFirstChild("Ball")
@@ -91,7 +96,7 @@ TP:CreateButton({
     end
 })
 
-TP:CreateDropdown({
+TP:Dropdown({
     Name = "Teleport a Jugador",
     Options = (function()
         local players = {}
@@ -113,9 +118,11 @@ TP:CreateDropdown({
 -----------------------------------------------------------
 -- 🟦 PESTAÑA: VISUALS
 -----------------------------------------------------------
-local Visuals = Window:CreateTab("👁 Visuals")
+local Visuals = Window:Tab({
+    Name = "👁 Visuals"
+})
 
-Visuals:CreateToggle({
+Visuals:Toggle({
     Name = "ESP Jugadores",
     Default = false,
     Callback = function(state)
@@ -139,10 +146,12 @@ Visuals:CreateToggle({
 -----------------------------------------------------------
 -- 🟦 PESTAÑA: TROLL
 -----------------------------------------------------------
-local Troll = Window:CreateTab("🤣 Troll")
+local Troll = Window:Tab({
+    Name = "🤣 Troll"
+})
 
-Troll:CreateButton({
-    Name = "Touch Fling (Probar en balon/players)",
+Troll:Button({
+    Name = "Touch Fling",
     Callback = function()
         local lp = game.Players.LocalPlayer
         local char = lp.Character
@@ -151,7 +160,7 @@ Troll:CreateButton({
         bv.Velocity = Vector3.new(9999,9999,9999)
         bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
         bv.Parent = humrp
-        wait(0.2)
+        task.wait(0.2)
         bv:Destroy()
     end
 })
@@ -159,16 +168,18 @@ Troll:CreateButton({
 -----------------------------------------------------------
 -- 🟦 PESTAÑA: CREDITOS
 -----------------------------------------------------------
-local Credits = Window:CreateTab("❤️ Credits")
+local Credits = Window:Tab({
+    Name = "❤️ Credits"
+})
 
-Credits:CreateButton({
+Credits:Button({
     Name = "TikTok",
     Callback = function()
         setclipboard("https://www.tiktok.com/@tuusuario")
     end
 })
 
-Credits:CreateButton({
+Credits:Button({
     Name = "Instagram",
     Callback = function()
         setclipboard("https://www.instagram.com/tuusuario")
