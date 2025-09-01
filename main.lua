@@ -3,6 +3,98 @@
 
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
+local Window = WindUI:CreateWindow({
+
+    Title = "XRNL HUB | INK GAME",
+
+    Icon = "cat",
+
+    Author = "https://www.instagram.com/roseb_astian/",
+
+    Folder = "RONALDO",
+
+})
+
+Window:EditOpenButton({
+
+    Title = "Open XRNL-HUB",
+
+    Icon = "cat",
+
+    CornerRadius = UDim.new(0,20),
+
+    StrokeThickness = 2,
+
+    Color = ColorSequence.new( -- gradient
+
+        Color3.fromHex("FF0F7B"), 
+
+        Color3.fromHex("F89B29")
+
+    ),
+
+    OnlyMobile = false,
+
+    Enabled = true,
+
+    Draggable = true,
+
+})
+
+
+Window:Tag({
+
+    Title = "v2.8.6",
+
+    Color = Color3.fromHex("#30ff6a")
+
+})
+
+
+local PlayerTab = Window:Tab({
+
+    Title = "Tab Player",
+
+    Icon = "person-standing",
+
+    Locked = false,
+
+})
+
+
+
+local RandomTab = Window:Tab({
+
+    Title = "Random Features",
+
+    Icon = "dices",
+
+    Locked = false,
+
+})
+
+
+local RedTab = Window:Tab({
+
+    Title = "Red Light, Green light",
+
+    Icon = "lightbulb",
+
+    Locked = false,
+
+})
+
+
+local DalgonaTab = Window:Tab({
+
+    Title = "Dalgona",
+
+    Icon = "cookie",
+
+    Locked = false,
+
+})
+
 local Window = WindUI:Window({
     Name = "Blue Lock Rivals HUB",
     Size = UDim2.new(0, 500, 0, 400)
